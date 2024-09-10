@@ -1,0 +1,11 @@
+<app-navbar></app-navbar>
+<router-outlet></router-outlet>
+<app-search-bar [(search)]="search"></app-search-bar>
+
+<div id="card-list">
+  <app-playing-card *ngFor="let monster of filteredMonsters()" [monster]="monster"/>
+</div>
+<div *ngIf="filteredMonsters().length == 0" class="centered">No monsters found!</div>
+<div *ngIf="filteredMonsters().length > 0" class="center">Found {{filteredMonsters().length}} monsters!</div>
+<div class="center"><button (click)="addMonster()">Add Generic Monster</button></div><br>
+
